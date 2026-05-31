@@ -1,0 +1,123 @@
+{
+  "project_name": "CyberGuard Malware Analysis Blog & Admin",
+  "domain": "Cybersecurity & Developer Tools",
+  "language": "Turkish",
+  "theme_and_archetype": {
+    "theme": "dark",
+    "archetype": "7 (Electric & Neon)",
+    "rationale": "Anchored by deep midnight blue and navy to fulfill 'koyu gece mavisi ve lacivert tonlarında' constraint, but adopting the Electric & Neon archetype to deliver the 'parlak neon mavi ve beyaz renklerde parlasın' glowing cybersecurity defense vibe. Surfaces must reflect depth (not flat black) to feel like a high-end, modern intelligence dashboard."
+  },
+  "color_palette": {
+    "background": {
+      "base": "#050B14",
+      "surface": "#0A1128",
+      "surface_elevated": "#111A3A",
+      "surface_highlight": "#1C2A54"
+    },
+    "primary": {
+      "DEFAULT": "#00F0FF",
+      "hover": "#4DFFFF",
+      "glow": "rgba(0, 240, 255, 0.4)",
+      "muted": "rgba(0, 240, 255, 0.1)"
+    },
+    "secondary": {
+      "DEFAULT": "#005CFF",
+      "hover": "#337DFF"
+    },
+    "text": {
+      "primary": "#F8F9FA",
+      "secondary": "#A0AEC0",
+      "muted": "#718096",
+      "inverse": "#050B14"
+    },
+    "accent": {
+      "danger": "#FF003C",
+      "warning": "#FFB800",
+      "success": "#00FF66"
+    },
+    "borders": {
+      "default": "rgba(0, 240, 255, 0.15)",
+      "hover": "rgba(0, 240, 255, 0.4)",
+      "active": "#00F0FF"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Rajdhani, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "rules": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight uppercase",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-medium",
+      "body": "text-base leading-relaxed text-[#A0AEC0]",
+      "labels_overlines": "font-mono text-xs uppercase tracking-[0.2em] text-[#00F0FF]",
+      "code_blocks": "font-mono text-sm leading-relaxed"
+    }
+  },
+  "spacing_and_layout": {
+    "general": "Generous spacing. Use p-6, p-8, p-12 for containers. Ensure breathing room for data density.",
+    "grid_system": "Bento-style grids for blog cards and analysis widgets. Base grid: grid-cols-1 md:grid-cols-8 lg:grid-cols-12 with gap-6 or gap-8.",
+    "featured_card": "The 'BIOS & MBR Bootkits' card must use col-span-full md:col-span-8 row-span-2 with glowing borders to stand out.",
+    "container_styling": "Containers use pure HTML + Tailwind CSS with dark layered surfaces, 1px solid border-cyan-500/15, and subtle inner glows (box-shadow).",
+    "border_radius": "Sharp or minimal rounding. rounded-none or rounded-md (max 6px) to maintain the structural, tactical feel."
+  },
+  "surface_strategies": {
+    "header": "Crystal Glass variant: bg-[#050B14]/70 backdrop-blur-xl border-b border-[#00F0FF]/20. Sticky top with z-50.",
+    "cards": "Retro-Futurism 'Terminal' look mixed with elevated depth. bg-[#0A1128] with hover:-translate-y-1 hover:border-[#00F0FF]/50 transition-all duration-300.",
+    "code_blocks": "Deepest dark bg-[#03070C] with explicit 1px border-[#005CFF]/30. Syntax highlighting must use neon cyan, green, and pink colors for Assembly instructions.",
+    "buttons": "Primary: bg-transparent border-2 border-[#00F0FF] text-[#00F0FF] hover:bg-[#00F0FF] hover:text-[#050B14] shadow-[0_0_15px_rgba(0,240,255,0.2)] transition-all uppercase font-mono text-sm tracking-wider."
+  },
+  "components": {
+    "navigation": "Logo left. Nav links center/right (Ana Sayfa, Analizler, Reverse Engineering, Hakkımızda, İletişim). Nav links must have hover effect turning text to #00F0FF with a text-shadow glow.",
+    "hero_section": "Must contain large H1 'ZARARLI YAZILIM VE BOOTKIT ANALİZ LABORATUVARI'. Background should use the cyber_hero_bg with overlay bg-[#050B14]/60 to ensure text legibility.",
+    "reverse_engineering_section": "Dedicated colorful syntax-highlighted Assembly blocks. Use a library like react-syntax-highlighter or raw styled HTML if static. Theme must be dark/neon.",
+    "admin_dashboard": "Clean, dense table layout using Shadcn/UI for lists. Forms for CRUD must use Shadcn Input, Textarea, Select, but styled to match the dark navy theme. Focus rings must be ring-[#00F0FF].",
+    "rich_text_editor": "Admin needs a way to add text, select category, upload images, and inject code blocks. Use a simple WYSIWYG or markdown editor integration.",
+    "visual_decorators": "Include terminal cursor blinking animations (|) on hero subtitles, subtle scanlines over hero images, and neon glows."
+  },
+  "media": {
+    "image_urls": {
+      "cyber_hero_bg": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/b12f44d0-2072-41a7-a06a-bbb4ddc4bfa9/images/95150e3f945193a379f51abc0799e50707e173f475d381757d05563f76d8ce7b.png",
+        "description": "Abstract digital network nodes in midnight blue with cyan glows.",
+        "usage": "Hero section background overlay with dark gradient."
+      },
+      "server_room_dark_blue": {
+        "url": "https://images.unsplash.com/photo-1680992046615-065f58bcb4d8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwzfHxzZXJ2ZXIlMjByb29tJTIwZGFyayUyMGJsdWV8ZW58MHx8fHwxNzgwMjQwODc5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Server rack in dark blue lighting.",
+        "usage": "Featured image for 'BIOS & MBR Bootkits' card or About section."
+      },
+      "cybersecurity_abstract_1": {
+        "url": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwyfHxjeWJlcnNlY3VyaXR5JTIwYWJzdHJhY3R8ZW58MHx8fHwxNzgwMjQwODc5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Blue background with data lines.",
+        "usage": "Default thumbnail for malware analysis blog posts."
+      },
+      "cybersecurity_abstract_2": {
+        "url": "https://images.unsplash.com/photo-1614064548237-096f735f344f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwzfHxjeWJlcnNlY3VyaXR5JTIwYWJzdHJhY3R8ZW58MHx8fHwxNzgwMjQwODc5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Padlock with light trails.",
+        "usage": "Thumbnail for Reverse Engineering articles."
+      }
+    }
+  },
+  "interactions_and_motion": {
+    "hover": "All interactive elements must change color explicitly. Text links hover:text-[#00F0FF], buttons get glowing shadows.",
+    "focus": "focus:outline-none focus:ring-2 focus:ring-[#00F0FF] focus:ring-offset-2 focus:ring-offset-[#050B14].",
+    "transitions": "Use transition-all duration-300 ease-in-out for cards and buttons."
+  },
+  "testing_attributes": {
+    "rule": "ALL interactive elements (links, buttons, form inputs, nav items) MUST include a data-testid attribute in kebab-case denoting their role.",
+    "examples": "data-testid='nav-home-link', data-testid='admin-login-button', data-testid='post-submit-button'"
+  },
+  "instructions_to_main_agent": [
+    "Build the application using React (.js files, no TSX) and Tailwind CSS.",
+    "Do NOT use Space Grotesk or Inter for headings; stick to Rajdhani or IBM Plex Sans.",
+    "Ensure the hero header says exactly 'ZARARLI YAZILIM VE BOOTKIT ANALİZ LABORATUVARI'.",
+    "For the 'BIOS & MBR Bootkits' card, make it span larger in the grid and give it an explicit glowing neon border to signify it as featured.",
+    "Implement Google OAuth for the admin panel login and a protected route for the dashboard.",
+    "Admin dashboard must include CRUD operations with form fields for Title, Category, Content (Rich text), Code Block (Assembly), and Image Upload.",
+    "For Reverse Engineering sections, use a syntax highlighter that supports Assembly language with a dark/neon theme.",
+    "Embed the media URLs exactly as provided. Do not use generic placeholders."
+  ]
+}

@@ -359,9 +359,6 @@ async def contact_list(user=Depends(require_admin)):
 # ===== Seed =====
 @api_router.post("/seed")
 async def seed_demo():
-    if await db.posts.count_documents({}) > 0:
-        return {"ok": True, "seeded": False}
-    
     samples = [
         {
             "title": "BIOS & MBR Bootkit Analizi: Düşük Seviye Tehditler",
@@ -421,11 +418,16 @@ async def seed_demo():
             "featured": False,
         },
     ]
+    inserted = 0
     for s in samples:
         slug = slugify(s["title"])
+        # Idempotent: only insert if slug not already in DB
+        if await db.posts.find_one({"slug": slug}):
+            continue
         post = Post(slug=slug, **s)
         await db.posts.insert_one(post.model_dump())
-    return {"ok": True, "seeded": True, "count": len(samples)}
+        inserted += 1
+    return {"ok": True, "inserted": inserted, "total": await db.posts.count_documents({})}
 
 
 @api_router.get("/")

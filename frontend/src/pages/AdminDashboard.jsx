@@ -22,6 +22,7 @@ export default function AdminDashboard() {
   const [form, setForm] = useState(EMPTY);
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(null); // post object or null
 
   useEffect(() => {
     if (!loading && !user) navigate("/admin/login", { replace: true });
@@ -74,10 +75,10 @@ export default function AdminDashboard() {
   };
 
   const removePost = async (id) => {
-    if (!window.confirm("Bu yazıyı silmek istediğinizden emin misiniz?")) return;
     try {
       await api.delete(`/posts/${id}`);
       toast.success("Yazı silindi");
+      setConfirmDelete(null);
       load();
     } catch (err) {
       toast.error("Silme başarısız: " + (err.response?.data?.detail || err.message));
@@ -137,7 +138,7 @@ export default function AdminDashboard() {
                       <button onClick={() => openEdit(p)} className="p-2 neon-border text-[#00F0FF]" data-testid={`edit-${p.slug}`}>
                         <Pencil className="w-3.5 h-3.5" />
                       </button>
-                      <button onClick={() => removePost(p.id)} className="p-2 border border-[#FF003C]/40 text-[#FF003C] hover:bg-[#FF003C] hover:text-white transition-all" data-testid={`delete-${p.slug}`}>
+                      <button onClick={() => setConfirmDelete(p)} className="p-2 border border-[#FF003C]/40 text-[#FF003C] hover:bg-[#FF003C] hover:text-white transition-all" data-testid={`delete-${p.slug}`}>
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -148,6 +149,33 @@ export default function AdminDashboard() {
           </tbody>
         </table>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {confirmDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4" style={{ background: "rgba(5,11,20,0.92)" }} data-testid="delete-confirm-modal">
+          <div className="w-full max-w-md glow-card p-8 relative" style={{ borderColor: "#FF003C", boxShadow: "0 0 40px rgba(255,0,60,0.25)" }}>
+            <div className="label-overline" style={{ color: "#FF003C" }}>// DANGER_ZONE</div>
+            <h2 className="font-display font-bold text-2xl uppercase mt-2 text-white">Yazıyı Sil?</h2>
+            <p className="mt-3 text-sm text-[#A0AEC0] leading-relaxed">
+              Şu yazı kalıcı olarak silinecek:
+            </p>
+            <div className="mt-3 p-3 border border-[#FF003C]/30 font-mono text-sm text-white break-words">
+              {confirmDelete.title}
+            </div>
+            <p className="mt-3 font-mono text-xs text-[#FF003C] uppercase tracking-wider">
+              // bu işlem geri alınamaz
+            </p>
+            <div className="mt-6 flex gap-3 justify-end">
+              <button onClick={() => setConfirmDelete(null)} className="btn-neon" data-testid="confirm-delete-cancel">
+                Vazgeç
+              </button>
+              <button onClick={() => removePost(confirmDelete.id)} className="btn-neon btn-danger" data-testid="confirm-delete-yes">
+                <Trash2 className="w-4 h-4" /> Evet, Sil
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Form Modal */}
       {showForm && (

@@ -13,7 +13,6 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       try {
-        await api.post("/seed").catch(() => {});
         const [pRes, fRes] = await Promise.all([
           api.get("/posts"),
           api.get("/posts/featured"),

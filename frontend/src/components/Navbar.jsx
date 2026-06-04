@@ -56,20 +56,7 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          {user ? (
-            <>
-              <Link to="/admin" className="ml-4 btn-neon" style={{ padding: "8px 16px" }} data-testid="nav-admin-dashboard">
-                Panel
-              </Link>
-              <button onClick={handleLogout} className="ml-2 text-[#A0AEC0] hover:text-[#FF003C] p-2" data-testid="nav-logout">
-                <LogOut className="w-4 h-4" />
-              </button>
-            </>
-          ) : (
-            <Link to="/admin/login" className="ml-4 btn-neon" style={{ padding: "8px 16px" }} data-testid="nav-admin-login">
-              Admin
-            </Link>
-          )}
+          
         </nav>
 
         <button className="lg:hidden text-[#00F0FF]" onClick={() => setOpen(!open)} data-testid="nav-mobile-toggle">
@@ -95,12 +82,8 @@ export default function Navbar() {
               >
                 {l.label}
               </NavLink>
-            ))}
-            {user ? (
-              <button onClick={handleLogout} className="btn-neon mt-3" data-testid="nav-logout-mobile">Çıkış</button>
-            ) : (
-              <Link to="/admin/login" onClick={() => setOpen(false)} className="btn-neon mt-3" data-testid="nav-admin-login-mobile">Admin Girişi</Link>
-            )}
+            ))}>
+            
           </div>
         </div>
       )}

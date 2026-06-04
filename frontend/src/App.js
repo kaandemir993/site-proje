@@ -11,8 +11,6 @@ import AnalysisDetail from "@/pages/AnalysisDetail";
 import ReverseEngineering from "@/pages/ReverseEngineering";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
-import AdminLogin from "@/pages/AdminLogin";
-import AdminDashboard from "@/pages/AdminDashboard";
 import { Toaster } from "sonner";
 
 function AppRouter() {
@@ -32,8 +30,7 @@ function AppRouter() {
           <Route path="/reverse-engineering" element={<ReverseEngineering />} />
           <Route path="/hakkimizda" element={<About />} />
           <Route path="/iletisim" element={<Contact />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+          
         </Routes>
       </main>
       <Footer />
